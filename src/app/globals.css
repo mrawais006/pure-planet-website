@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+  --font-dm-sans: 'DM Sans', sans-serif;
+  --font-space-grotesk: 'Space Grotesk', sans-serif;
+}
+
+@theme {
+  --color-primary: #c2f32c;
+  --color-primary-dark: #12b347;
+  --color-primary-dark-bg: #062d16;
+  /* New Dark Green */
+  --color-secondary: #161616;
+  --color-secondary-light: #1e1e1e;
+
+  /* Prioritize the font requested by the designer */
+  --font-display: "Helvetica Neue", "Arial Black", "Arial", var(--font-space-grotesk), sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: white;
+}
+
+/* Custom Utilities if needed */
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
