@@ -33,6 +33,10 @@ yarn-error.log*
 # env files (can opt-in for committing if needed)
 .env*
 
+# Figma utility scripts with API keys
+map_about_assets.js
+about_image_map.json
+
 # vercel
 .vercel
 
