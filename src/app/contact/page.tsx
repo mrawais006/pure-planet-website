@@ -4,6 +4,7 @@ import Link from 'next/link';
 
 import Navbar from "@/components/home/Navbar";
 import Footer from "@/components/layout/Footer";
+import ContactForm from "@/components/contact/ContactForm";
 
 export const metadata: Metadata = {
     title: "Contact Us - Pure Planet | Energy Solutions",
@@ -51,74 +52,7 @@ export default function ContactPage() {
                         Contact Us For Any Queries?
                     </h2>
 
-                    <form className="space-y-6 max-w-lg">
-                        {/* Solar System Type */}
-                        <div>
-                            <label className="block text-xs font-bold mb-2">Solar System Type?</label>
-                            <div className="grid grid-cols-2 gap-4">
-                                <div className="relative">
-                                    <select className="appearance-none w-full bg-white rounded-full py-3 px-6 text-sm font-bold text-gray-700 focus:outline-none cursor-pointer">
-                                        <option>Off grid</option>
-                                        <option>On grid</option>
-                                        <option>Hybrid</option>
-                                    </select>
-                                    <div className="pointer-events-none absolute inset-y-0 right-4 flex items-center px-2 text-gray-700">
-                                        <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" /></svg>
-                                    </div>
-                                </div>
-                                <div className="bg-white rounded-full py-3 px-6 text-sm font-bold text-gray-400">
-                                    Monthly Electric Usage in KWH?
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Solar Panel Place */}
-                        <div>
-                            <label className="block text-xs font-bold mb-2">Solar Panel Place?</label>
-                            <div className="relative">
-                                <select className="appearance-none w-full bg-white rounded-full py-3 px-6 text-sm font-bold text-gray-700 focus:outline-none cursor-pointer">
-                                    <option>Huge farm</option>
-                                    <option>Residential Roof</option>
-                                    <option>Commercial Roof</option>
-                                </select>
-                                <div className="pointer-events-none absolute inset-y-0 right-4 flex items-center px-2 text-gray-700">
-                                    <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" /></svg>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Materials On Your Roof */}
-                        <div>
-                            <label className="block text-xs font-bold mb-2">Materials On Your Roof?</label>
-                            <div className="relative">
-                                <select className="appearance-none w-full bg-white rounded-full py-3 px-6 text-sm font-bold text-gray-700 focus:outline-none cursor-pointer">
-                                    <option>Comp Shingle</option>
-                                    <option>Tile</option>
-                                    <option>Metal</option>
-                                </select>
-                                <div className="pointer-events-none absolute inset-y-0 right-4 flex items-center px-2 text-gray-700">
-                                    <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" /></svg>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="grid grid-cols-2 gap-4">
-                            <input type="email" placeholder="Email" className="w-full bg-white rounded-full py-3 px-6 text-sm focus:outline-none" />
-                            <input type="text" placeholder="Phone Number" className="w-full bg-white rounded-full py-3 px-6 text-sm focus:outline-none" />
-                        </div>
-
-                        <div className="flex items-center gap-2 text-xs font-bold text-secondary">
-                            <input type="checkbox" id="terms" className="rounded-sm" />
-                            <label htmlFor="terms">I agree with Terms & Conditions</label>
-                        </div>
-
-                        <button className="bg-black text-white font-bold py-3 px-8 rounded-full hover:bg-white hover:text-black transition-all duration-300 flex items-center gap-2 text-sm max-w-[150px]">
-                            Discover
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
-                            </svg>
-                        </button>
-                    </form>
+                    <ContactForm />
                 </div>
 
                 {/* Right: Contact Info */}

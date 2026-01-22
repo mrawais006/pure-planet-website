@@ -14,7 +14,7 @@ const Navbar = () => {
     const topBarBg = "bg-[#062d16]";
 
     // Pages that always need a dark header (no hero image)
-    const alwaysDarkPages = ['/terms-conditions', '/privacy-policy'];
+    const alwaysDarkPages = ['/terms-conditions', '/privacy-policy', '/contact/thank-you'];
     const isDarkHeader = isScrolled || alwaysDarkPages.includes(pathname);
 
     // Handle Scroll
