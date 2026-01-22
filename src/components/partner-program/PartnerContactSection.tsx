@@ -3,6 +3,10 @@
 import React, { useState, FormEvent } from 'react';
 import { useRouter } from 'next/navigation';
 
+
+
+
+
 const faqData = [
     {
         question: "How Does The Partner Program Work?",
