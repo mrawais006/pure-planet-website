@@ -150,7 +150,7 @@ const Navbar = () => {
                     </Link>
                 </div>
 
-                <Link href="/contact" className="hidden lg:flex bg-primary text-[#062d16] font-bold py-3 px-8 rounded-full hover:bg-white hover:text-black hover:scale-105 transition-all duration-300 text-sm tracking-wide flex items-center gap-2 shadow-lg shadow-primary/20 group">
+                <Link href="/quote-form" className="hidden lg:flex bg-primary text-[#062d16] font-bold py-3 px-8 rounded-full hover:bg-white hover:text-black hover:scale-105 transition-all duration-300 text-sm tracking-wide flex items-center gap-2 shadow-lg shadow-primary/20 group">
                     Get Quotes
                     <span className="bg-[#062d16] text-white w-6 h-6 rounded-full flex items-center justify-center transform -rotate-45 group-hover:rotate-0 group-hover:bg-black transition-all duration-300">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-3 h-3">
