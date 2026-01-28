@@ -40,22 +40,43 @@ const Experience = () => {
                         <span className="text-sm font-bold text-gray-900">Commercial & Residential Solar Solution Across Victoria</span>
                     </div>
                     {/* Size 46px as requested */}
-                    <h2 className="text-[46px] font-display font-medium mb-6 text-gray-900 leading-[1.1]">
-                        Melbourne’s Trusted <br className="hidden md:block" />
-                        Solar Company For <br className="hidden md:block" />
-                        On-Grid & Off-Grid <br className="hidden md:block" />
-                        Solution
+                    <h2 className="text-[40px] md:text-[36px] font-display font-medium mb-6 text-gray-900 leading-[1.1]">
+                        Engineered for Melbourne Weather. <br className="hidden md:block" />
+                        Built for Life.
                     </h2>
                     {/* Fixed line spacing to be standard (not loose) */}
                     <p className="text-gray-900 mb-10 text-base leading-normal max-w-lg">
-                        Why customers trust us:
+                        We don’t just install panels; we design energy ecosystems. From Ravenhall to the Mornington Peninsula,
+                        our systems are optimized for Victoria’s unique climate. We manage the entire process—from securing your
+                        VEU rebates to ensuring strict compliance with Energy Safe Victoria standards.
                     </p>
 
-                    {/* Progress Bars */}
-                    <div className="space-y-6 mb-10 max-w-lg">
-                        <ProgressBar label="Troubleshooting Accuracy" percentage={96} />
-                        <ProgressBar label="On-Time Service Delivery" percentage={99} />
-                        <ProgressBar label="Flexible Financing Options" percentage={100} />
+                    {/* Trust Badges - Replaces Progress Bars */}
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10 max-w-lg">
+                        <div className="bg-white border border-gray-200 rounded-xl p-4 flex flex-col items-center text-center shadow-sm hover:shadow-md transition-shadow">
+                            <div className="w-10 h-10 mb-2 text-[#062d16]">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-full h-full">
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />
+                                </svg>
+                            </div>
+                            <span className="text-xs font-bold text-gray-900 leading-tight">Solar Victoria<br />Authorized Retailer</span>
+                        </div>
+                        <div className="bg-white border border-gray-200 rounded-xl p-4 flex flex-col items-center text-center shadow-sm hover:shadow-md transition-shadow">
+                            <div className="w-10 h-10 mb-2 text-[#062d16]">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-full h-full">
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+                                </svg>
+                            </div>
+                            <span className="text-xs font-bold text-gray-900 leading-tight">Clean Energy Council<br />Approved</span>
+                        </div>
+                        <div className="bg-white border border-gray-200 rounded-xl p-4 flex flex-col items-center text-center shadow-sm hover:shadow-md transition-shadow">
+                            <div className="w-10 h-10 mb-2 text-[#062d16]">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-full h-full">
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" />
+                                </svg>
+                            </div>
+                            <span className="text-xs font-bold text-gray-900 leading-tight">5-Year Workmanship<br />Warranty</span>
+                        </div>
                     </div>
 
                     {/* Actions */}
@@ -78,7 +99,7 @@ const Experience = () => {
 
                             <div className="leading-tight">
                                 <span className="block text-gray-900 text-xs font-bold mb-0.5">Talk To Us</span>
-                                <a href="tel:0450010419" className="text-gray-900 font-bold text-lg hover:text-gray-600 transition tracking-tight">04 5001 0419</a>
+                                <a href="tel:0450010419" className="text-gray-900 font-bold text-lg hover:text-gray-600 transition tracking-tight">0450 010 419</a>
                             </div>
                         </div>
                     </div>

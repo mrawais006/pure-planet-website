@@ -200,7 +200,7 @@ export default function ThankYouPage() {
                         </p>
                         <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
                             <a
-                                href="tel:0450010410"
+                                href="tel:0450010419"
                                 className="group flex items-center gap-3 px-6 py-3 bg-white/80 backdrop-blur-sm border border-[#C2F32C]/30 rounded-full hover:bg-[#C2F32C] hover:scale-105 transition-all duration-300 shadow-sm hover:shadow-lg"
                             >
                                 <div className="bg-[#C2F32C]/20 group-hover:bg-white/30 p-2 rounded-full transition-colors duration-300">
@@ -219,11 +219,11 @@ export default function ThankYouPage() {
                                         />
                                     </svg>
                                 </div>
-                                <span className="font-bold text-[#062d16] text-sm">04 5001 0410</span>
+                                <span className="font-bold text-[#062d16] text-sm">0450 010 419</span>
                             </a>
 
                             <a
-                                href="mailto:info@pure-planet.com"
+                                href="mailto:info@pureplanet.net.au"
                                 className="group flex items-center gap-3 px-6 py-3 bg-white/80 backdrop-blur-sm border border-[#C2F32C]/30 rounded-full hover:bg-[#C2F32C] hover:scale-105 transition-all duration-300 shadow-sm hover:shadow-lg"
                             >
                                 <div className="bg-[#C2F32C]/20 group-hover:bg-white/30 p-2 rounded-full transition-colors duration-300">
@@ -242,7 +242,7 @@ export default function ThankYouPage() {
                                         />
                                     </svg>
                                 </div>
-                                <span className="font-bold text-[#062d16] text-sm">info@pure-planet.com</span>
+                                <span className="font-bold text-[#062d16] text-sm">info@pureplanet.net.au</span>
                             </a>
                         </div>
                     </div>

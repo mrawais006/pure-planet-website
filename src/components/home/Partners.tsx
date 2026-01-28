@@ -3,11 +3,11 @@ import React from "react";
 
 const Partners = () => {
     const partners = [
-        { src: "/Parftner Logos/Parftner Logos/Energy.svg", alt: "Energy" },
-        { src: "/Parftner Logos/Parftner Logos/Power.svg", alt: "Power" },
-        { src: "/Parftner Logos/Parftner Logos/The Energy.svg", alt: "The Energy" },
-        { src: "/Parftner Logos/Parftner Logos/Hero.svg", alt: "Hero" },
-        { src: "/Parftner Logos/Parftner Logos/Solar Energy.svg", alt: "Solar Energy" },
+        { src: "/partners/jinko.png", alt: "Jinko Solar" },
+        { src: "/partners/Canadian Solar.png", alt: "Canadian Solar" },
+        { src: "/partners/hanersun.png", alt: "Hanersun" },
+        { src: "/partners/fox-ess-logo.png", alt: "Fox ESS" },
+        { src: "/partners/neovolt-logo.png", alt: "NeoVolt" },
     ];
 
     return (
@@ -21,8 +21,8 @@ const Partners = () => {
                 <div className="border border-gray-200 rounded-2xl bg-transparent overflow-hidden">
                     <div className="grid grid-cols-2 md:grid-cols-5 divide-x divide-y md:divide-y-0 divide-gray-200">
                         {partners.map((partner, i) => (
-                            <div key={i} className="flex items-center justify-center p-8 md:p-10 h-32 md:h-40 hover:bg-white/50 transition-colors duration-300">
-                                <div className="relative w-full h-full max-w-[140px] max-h-[100px]">
+                            <div key={i} className="flex items-center justify-center p-4 md:p-6 h-32 md:h-40 hover:bg-white/50 transition-colors duration-300">
+                                <div className="relative w-full h-full max-w-[180px] max-h-[120px]">
                                     <Image
                                         src={partner.src}
                                         alt={partner.alt}

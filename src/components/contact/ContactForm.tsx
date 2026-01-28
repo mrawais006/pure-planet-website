@@ -1,39 +1,26 @@
 'use client';
 
 import { useState, FormEvent } from 'react';
-import { useRouter } from 'next/navigation';
+import SuccessMessage from './SuccessMessage';
 
 export default function ContactForm() {
-    const router = useRouter();
     const [formData, setFormData] = useState({
-        solarSystemType: 'Off grid',
-        monthlyElectricUsage: '',
-        solarPanelPlace: 'Huge farm',
-        roofMaterial: 'Comp Shingle',
-        email: '',
+        name: '',
         phone: '',
-        agreedToTerms: false
+        email: '',
+        inquiry_type: 'quote', // Default to quote
+        message: ''
     });
 
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [error, setError] = useState<string | null>(null);
+    const [successData, setSuccessData] = useState<{ name: string; referenceNumber: string } | null>(null);
+
+    const messageLength = formData.message.length;
 
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setError(null);
-
-        // Validate terms
-        if (!formData.agreedToTerms) {
-            setError('Please agree to the terms and conditions');
-            return;
-        }
-
-        // Validate email and phone
-        if (!formData.email || !formData.phone) {
-            setError('Please fill in both email and phone number');
-            return;
-        }
-
         setIsSubmitting(true);
 
         try {
@@ -51,148 +38,178 @@ export default function ContactForm() {
                 throw new Error(data.error || 'Failed to submit form');
             }
 
-            // Redirect to thank you page on success
-            router.push('/contact/thank-you');
+            // Show success message
+            setSuccessData({
+                name: formData.name,
+                referenceNumber: data.referenceNumber
+            });
+
         } catch (err) {
-            setError(err instanceof Error ? err.message : 'An error occurred');
+            setError(err instanceof Error ? err.message : 'An error occurred. Please try again or call us directly.');
             setIsSubmitting(false);
         }
     };
 
-    return (
-        <form onSubmit={handleSubmit} className="space-y-6 max-w-lg">
-            {error && (
-                <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-lg text-sm">
-                    {error}
-                </div>
-            )}
+    if (successData) {
+        return <SuccessMessage name={successData.name} referenceNumber={successData.referenceNumber} />;
+    }
 
-            {/* Solar System Type */}
-            <div>
-                <label className="block text-xs font-bold mb-2">Solar System Type?</label>
-                <div className="grid grid-cols-2 gap-4">
-                    <div className="relative">
-                        <select
-                            value={formData.solarSystemType}
-                            onChange={(e) => setFormData({ ...formData, solarSystemType: e.target.value })}
-                            className="appearance-none w-full bg-white rounded-full py-3 px-6 text-sm font-bold text-gray-700 focus:outline-none focus:ring-2 focus:ring-black cursor-pointer"
-                            disabled={isSubmitting}
-                        >
-                            <option>Off grid</option>
-                            <option>On grid</option>
-                            <option>Hybrid</option>
-                        </select>
-                        <div className="pointer-events-none absolute inset-y-0 right-4 flex items-center px-2 text-gray-700">
-                            <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-                            </svg>
-                        </div>
+    return (
+        <div className="bg-white rounded-3xl p-6 md:p-8 shadow-xl h-full">
+            <h2 className="text-2xl font-bold text-gray-800 mb-6">Get In Touch</h2>
+            <form onSubmit={handleSubmit} className="space-y-6">
+                {error && (
+                    <div className="bg-red-50 border-l-4 border-red-500 p-4 rounded-r">
+                        <p className="text-red-700 text-sm">{error}</p>
                     </div>
+                )}
+
+                {/* Field 1: Your Name */}
+                <div className="field-group">
+                    <label htmlFor="name" className="block text-gray-700 font-medium mb-2 text-base">
+                        Your Name <span className="text-[#C2F32C]">*</span>
+                    </label>
                     <input
-                        type="number"
-                        placeholder="Monthly Electric Usage (KWH)"
-                        value={formData.monthlyElectricUsage}
-                        onChange={(e) => setFormData({ ...formData, monthlyElectricUsage: e.target.value })}
-                        className="bg-white rounded-full py-3 px-6 text-sm font-bold text-gray-700 focus:outline-none focus:ring-2 focus:ring-black"
+                        type="text"
+                        id="name"
+                        value={formData.name}
+                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                        required
+                        placeholder="Enter your full name"
+                        className="w-full px-4 py-4 text-base border-2 border-gray-100 bg-gray-50 rounded-xl focus:bg-white focus:border-[#C2F32C] focus:outline-none transition-all placeholder:text-gray-400"
                         disabled={isSubmitting}
                     />
                 </div>
-            </div>
 
-            {/* Solar Panel Place */}
-            <div>
-                <label className="block text-xs font-bold mb-2">Solar Panel Place?</label>
-                <div className="relative">
-                    <select
-                        value={formData.solarPanelPlace}
-                        onChange={(e) => setFormData({ ...formData, solarPanelPlace: e.target.value })}
-                        className="appearance-none w-full bg-white rounded-full py-3 px-6 text-sm font-bold text-gray-700 focus:outline-none focus:ring-2 focus:ring-black cursor-pointer"
+                {/* Field 2: Best Phone Number */}
+                <div className="field-group">
+                    <label htmlFor="phone" className="block text-gray-700 font-medium mb-2 text-base">
+                        Best Phone Number <span className="text-[#C2F32C]">*</span>
+                    </label>
+                    <input
+                        type="tel"
+                        id="phone"
+                        value={formData.phone}
+                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                        required
+                        placeholder="04XX XXX XXX"
+                        className="w-full px-4 py-4 text-base border-2 border-gray-100 bg-gray-50 rounded-xl focus:bg-white focus:border-[#C2F32C] focus:outline-none transition-all placeholder:text-gray-400"
                         disabled={isSubmitting}
-                    >
-                        <option>Huge farm</option>
-                        <option>Residential Roof</option>
-                        <option>Commercial Roof</option>
-                    </select>
-                    <div className="pointer-events-none absolute inset-y-0 right-4 flex items-center px-2 text-gray-700">
-                        <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                            <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-                        </svg>
-                    </div>
+                    />
                 </div>
-            </div>
 
-            {/* Materials On Your Roof */}
-            <div>
-                <label className="block text-xs font-bold mb-2">Materials On Your Roof?</label>
-                <div className="relative">
-                    <select
-                        value={formData.roofMaterial}
-                        onChange={(e) => setFormData({ ...formData, roofMaterial: e.target.value })}
-                        className="appearance-none w-full bg-white rounded-full py-3 px-6 text-sm font-bold text-gray-700 focus:outline-none focus:ring-2 focus:ring-black cursor-pointer"
+                {/* Field 3: Email Address (Optional) */}
+                <div className="field-group">
+                    <label htmlFor="email" className="block text-gray-700 font-medium mb-2 text-base">
+                        Email Address <span className="text-gray-400 font-normal text-sm md:text-base">(Optional)</span>
+                    </label>
+                    <input
+                        type="email"
+                        id="email"
+                        value={formData.email}
+                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                        placeholder="your@email.com"
+                        className="w-full px-4 py-4 text-base border-2 border-gray-100 bg-gray-50 rounded-xl focus:bg-white focus:border-[#C2F32C] focus:outline-none transition-all placeholder:text-gray-400"
                         disabled={isSubmitting}
-                    >
-                        <option>Comp Shingle</option>
-                        <option>Tile</option>
-                        <option>Metal</option>
-                    </select>
-                    <div className="pointer-events-none absolute inset-y-0 right-4 flex items-center px-2 text-gray-700">
-                        <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                            <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-                        </svg>
-                    </div>
+                    />
                 </div>
-            </div>
 
-            {/* Email and Phone */}
-            <div className="grid grid-cols-2 gap-4">
-                <input
-                    type="email"
-                    placeholder="Email"
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full bg-white rounded-full py-3 px-6 text-sm focus:outline-none focus:ring-2 focus:ring-black"
-                    required
-                    disabled={isSubmitting}
-                />
-                <input
-                    type="tel"
-                    placeholder="Phone Number"
-                    value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    className="w-full bg-white rounded-full py-3 px-6 text-sm focus:outline-none focus:ring-2 focus:ring-black"
-                    required
-                    disabled={isSubmitting}
-                />
-            </div>
+                {/* Field 4: How Can We Help? */}
+                <div className="field-group">
+                    <label className="block text-gray-700 font-medium mb-4 text-base">
+                        How can we help?
+                    </label>
 
-            {/* Terms Checkbox */}
-            <div className="flex items-center gap-2 text-xs font-bold text-secondary">
-                <input
-                    type="checkbox"
-                    id="terms"
-                    checked={formData.agreedToTerms}
-                    onChange={(e) => setFormData({ ...formData, agreedToTerms: e.target.checked })}
-                    className="rounded-sm w-4 h-4 cursor-pointer"
-                    disabled={isSubmitting}
-                />
-                <label htmlFor="terms" className="cursor-pointer">
-                    I agree with Terms & Conditions
-                </label>
-            </div>
+                    <div className="grid gap-3">
+                        {/* Option 1: Quote */}
+                        <label className={`flex items-center p-4 border-2 rounded-xl cursor-pointer transition-all
+                                          ${formData.inquiry_type === 'quote' ? 'border-[#C2F32C] bg-[#C2F32C]/10' : 'border-gray-100 hover:border-gray-200 bg-gray-50'}`}>
+                            <input
+                                type="radio"
+                                name="inquiry_type"
+                                value="quote"
+                                checked={formData.inquiry_type === 'quote'}
+                                onChange={(e) => setFormData({ ...formData, inquiry_type: e.target.value })}
+                                className="w-5 h-5 text-[#C2F32C] mr-4 accent-[#062d16]"
+                                disabled={isSubmitting}
+                            />
+                            <span className="text-gray-700 font-medium">I want a Solar/Battery Quote</span>
+                        </label>
 
-            {/* Submit Button */}
-            <button
-                type="submit"
-                disabled={isSubmitting}
-                className="bg-black text-white font-bold py-3 px-8 rounded-full hover:bg-white hover:text-black transition-all duration-300 flex items-center gap-2 text-sm max-w-[150px] disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-                {isSubmitting ? 'Sending...' : 'Discover'}
-                {!isSubmitting && (
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
-                    </svg>
-                )}
-            </button>
-        </form>
+                        {/* Option 2: Service */}
+                        <label className={`flex items-center p-4 border-2 rounded-xl cursor-pointer transition-all
+                                          ${formData.inquiry_type === 'service' ? 'border-[#C2F32C] bg-[#C2F32C]/10' : 'border-gray-100 hover:border-gray-200 bg-gray-50'}`}>
+                            <input
+                                type="radio"
+                                name="inquiry_type"
+                                value="service"
+                                checked={formData.inquiry_type === 'service'}
+                                onChange={(e) => setFormData({ ...formData, inquiry_type: e.target.value })}
+                                className="w-5 h-5 text-[#C2F32C] mr-4 accent-[#062d16]"
+                                disabled={isSubmitting}
+                            />
+                            <span className="text-gray-700 font-medium">Service or Repair</span>
+                        </label>
+
+                        {/* Option 3: Other */}
+                        <label className={`flex items-center p-4 border-2 rounded-xl cursor-pointer transition-all
+                                          ${formData.inquiry_type === 'other' ? 'border-[#C2F32C] bg-[#C2F32C]/10' : 'border-gray-100 hover:border-gray-200 bg-gray-50'}`}>
+                            <input
+                                type="radio"
+                                name="inquiry_type"
+                                value="other"
+                                checked={formData.inquiry_type === 'other'}
+                                onChange={(e) => setFormData({ ...formData, inquiry_type: e.target.value })}
+                                className="w-5 h-5 text-[#C2F32C] mr-4 accent-[#062d16]"
+                                disabled={isSubmitting}
+                            />
+                            <span className="text-gray-700 font-medium">Other</span>
+                        </label>
+                    </div>
+
+                    {/* Conditional Text Area */}
+                    {formData.inquiry_type === 'other' && (
+                        <div className="mt-4 animate-fade-in-up">
+                            <label htmlFor="message" className="block text-gray-700 font-medium mb-2 text-base">
+                                Please describe your query
+                            </label>
+                            <textarea
+                                id="message"
+                                rows={4}
+                                maxLength={500}
+                                value={formData.message}
+                                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                                placeholder="Tell us how we can help..."
+                                className="w-full px-4 py-4 text-base border-2 border-gray-100 bg-gray-50 rounded-xl focus:bg-white focus:border-[#C2F32C] focus:outline-none transition-colors resize-none placeholder:text-gray-400"
+                                disabled={isSubmitting}
+                            />
+                            <p className="text-xs text-gray-400 mt-1 text-right">
+                                {messageLength}/500 characters
+                            </p>
+                        </div>
+                    )}
+                </div>
+
+                {/* Submit Button */}
+                <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full py-4 px-6 bg-[#C2F32C] text-[#062d16] font-bold text-lg rounded-xl hover:scale-[1.02] active:scale-[0.98] transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 shadow-lg shadow-[#C2F32C]/20"
+                >
+                    {isSubmitting ? (
+                        <span>Sending...</span>
+                    ) : (
+                        <>
+                            <span>📞</span>
+                            <span>Call Me Back</span>
+                        </>
+                    )}
+                </button>
+
+                <p className="text-center text-sm text-gray-500 mt-4">
+                    ⏱️ We typically respond within 2 hours during business hours.
+                </p>
+            </form>
+        </div>
     );
 }

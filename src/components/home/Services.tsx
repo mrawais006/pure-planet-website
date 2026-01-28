@@ -7,25 +7,25 @@ const Services = () => {
     // These map to "solar panels", "home batteries", "partner program", "heat pumps"
     const services = [
         {
-            title: "Solar Panels",
+            title: "High-Yield Solar Panels",
             // Corrected Path: /images/home/...
             image: "/images/home/5438ffa41a7b4e23aff65beb432228371508c1ab.png",
             link: "/services/solar-panels"
         },
         {
-            title: "Home Batteries",
+            title: "Smart Home Batteries",
             // Corrected Path: /Pure Planet Images/Home Page/...
             image: "/Pure Planet Images/Home Page/energy-storage-battery-packs-smart-garage-wall-as-backup-generated-from-solar-system.jpg",
             link: "/services/home-batteries"
         },
         {
-            title: "Partner Program",
+            title: "Accredited Installer Program",
             // Corrected Path with spaces (Browser handles spaces in src usually, but good to be aware)
             image: "/Pure Planet Images/Home Page/solar-power-plant-engineer-standing-rooftop-with-laptop-checking-electricity-production - Copy.jpg",
             link: "/partner-program"
         },
         {
-            title: "Heat Pumps",
+            title: "Hot Water Heat Pumps",
             // Corrected Path
             image: "/Pure Planet Images/Home Page/r-conditioning-fan-hvac-ventilation-fan-background.jpg",
             link: "/services/heat-pump"

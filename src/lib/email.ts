@@ -5,7 +5,7 @@ import { INCOME_BRACKET_LABELS } from "@/app/quote-form/types";
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 const ADMIN_EMAIL = process.env.ADMIN_EMAIL || "ummehabiba989@gmail.com";
-const FROM_EMAIL = process.env.FROM_EMAIL || "Pure Planet <support@pureplanet.net.au>";
+const FROM_EMAIL = process.env.FROM_EMAIL || "Pure Planet <info@pureplanet.net.au>";
 
 interface AdminEmailData {
   leadId: string;
@@ -61,35 +61,29 @@ export async function sendAdminNotificationEmail(data: AdminEmailData) {
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body style="margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background-color: #f4f4f4;">
-  <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #f4f4f4; padding: 20px;">
+<body style="margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background-color: #f9fafb;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #f9fafb; padding: 20px 0;">
     <tr>
       <td align="center">
-        <table width="600" cellpadding="0" cellspacing="0" style="background-color: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
-          <!-- Header -->
+        <table width="600" cellpadding="0" cellspacing="0" style="background-color: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); max-width: 600px;">
+          <!-- Compact Header -->
           <tr>
-            <td style="background-color: #062d16; padding: 30px 40px; text-align: center;">
-              <h1 style="margin: 0; color: #C2F32C; font-size: 24px; font-weight: 700;">
-                ${temperatureEmoji} New Lead: ${temperatureLabel}
-              </h1>
-              <p style="margin: 10px 0 0; color: #ffffff; font-size: 14px;">
-                Reference: ${data.referenceNumber}
-              </p>
-            </td>
-          </tr>
-
-          <!-- Lead Score Badge -->
-          <tr>
-            <td style="padding: 30px 40px 0;">
+            <td style="background: linear-gradient(135deg, #062d16 0%, #0a4020 100%); padding: 24px 32px; border-bottom: 3px solid #C2F32C;">
               <table width="100%" cellpadding="0" cellspacing="0">
                 <tr>
-                  <td style="background: linear-gradient(135deg, ${
-                    temperature === "hot" ? "#ef4444" : temperature === "warm" ? "#f59e0b" : "#6b7280"
-                  }, ${
-                    temperature === "hot" ? "#dc2626" : temperature === "warm" ? "#d97706" : "#4b5563"
-                  }); border-radius: 12px; padding: 20px; text-align: center;">
-                    <p style="margin: 0; color: #ffffff; font-size: 14px; text-transform: uppercase; letter-spacing: 1px;">Lead Score</p>
-                    <p style="margin: 10px 0 0; color: #ffffff; font-size: 48px; font-weight: 700;">${data.leadScore}/100</p>
+                  <td style="text-align: left;">
+                    <h1 style="margin: 0; color: #ffffff; font-size: 18px; font-weight: 600; letter-spacing: -0.5px;">
+                      ${temperatureEmoji} New Lead
+                    </h1>
+                    <p style="margin: 4px 0 0; color: #C2F32C; font-size: 12px; font-weight: 500;">
+                      ${data.referenceNumber}
+                    </p>
+                  </td>
+                  <td style="text-align: right;">
+                    <span style="display: inline-block; padding: 6px 14px; background-color: ${temperature === "hot" ? "#ef4444" : temperature === "warm" ? "#f59e0b" : "#6b7280"
+    }; border-radius: 20px; color: #ffffff; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">
+                      ${data.leadScore}/100
+                    </span>
                   </td>
                 </tr>
               </table>
@@ -98,31 +92,31 @@ export async function sendAdminNotificationEmail(data: AdminEmailData) {
 
           <!-- Contact Information -->
           <tr>
-            <td style="padding: 30px 40px;">
-              <h2 style="margin: 0 0 20px; color: #062d16; font-size: 18px; font-weight: 600; border-bottom: 2px solid #C2F32C; padding-bottom: 10px;">
-                Contact Information
+            <td style="padding: 28px 32px 20px;">
+              <h2 style="margin: 0 0 16px; color: #062d16; font-size: 15px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; opacity: 0.6;">
+                Contact Details
               </h2>
-              <table width="100%" cellpadding="0" cellspacing="0" style="font-size: 14px;">
+              <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #f9fafb; border-radius: 8px; padding: 20px; font-size: 13px;">
                 <tr>
-                  <td style="padding: 8px 0; color: #6b7280; width: 140px;">Name</td>
-                  <td style="padding: 8px 0; color: #111827; font-weight: 500;">${data.fullName}</td>
+                  <td style="padding: 6px 0; color: #6b7280; width: 120px; font-size: 12px;">Name</td>
+                  <td style="padding: 6px 0; color: #111827; font-weight: 600;">${data.fullName}</td>
                 </tr>
                 <tr>
-                  <td style="padding: 8px 0; color: #6b7280;">Email</td>
-                  <td style="padding: 8px 0;"><a href="mailto:${data.email}" style="color: #062d16; text-decoration: none;">${data.email}</a></td>
+                  <td style="padding: 6px 0; color: #6b7280; font-size: 12px;">Email</td>
+                  <td style="padding: 6px 0;"><a href="mailto:${data.email}" style="color: #062d16; text-decoration: none; font-weight: 500;">${data.email}</a></td>
                 </tr>
                 <tr>
-                  <td style="padding: 8px 0; color: #6b7280;">Phone</td>
-                  <td style="padding: 8px 0;"><a href="tel:${data.phone}" style="color: #062d16; text-decoration: none; font-weight: 500;">${data.phone}</a></td>
+                  <td style="padding: 6px 0; color: #6b7280; font-size: 12px;">Phone</td>
+                  <td style="padding: 6px 0;"><a href="tel:${data.phone}" style="color: #062d16; text-decoration: none; font-weight: 600; background-color: #C2F32C; padding: 4px 12px; border-radius: 6px; display: inline-block;">${data.phone}</a></td>
                 </tr>
                 <tr>
-                  <td style="padding: 8px 0; color: #6b7280;">Location</td>
-                  <td style="padding: 8px 0; color: #111827;">${data.suburb ? `${data.suburb}, ` : ""}${data.postcode}</td>
+                  <td style="padding: 6px 0; color: #6b7280; font-size: 12px;">Location</td>
+                  <td style="padding: 6px 0; color: #111827; font-weight: 500;">${data.suburb ? `${data.suburb}, ` : ""}${data.postcode}</td>
                 </tr>
                 ${data.preferredContactTime ? `
                 <tr>
-                  <td style="padding: 8px 0; color: #6b7280;">Best Time</td>
-                  <td style="padding: 8px 0; color: #111827; text-transform: capitalize;">${data.preferredContactTime}</td>
+                  <td style="padding: 6px 0; color: #6b7280; font-size: 12px;">Best Time</td>
+                  <td style="padding: 6px 0; color: #111827; font-weight: 500; text-transform: capitalize;">${data.preferredContactTime}</td>
                 </tr>
                 ` : ""}
               </table>
@@ -131,30 +125,29 @@ export async function sendAdminNotificationEmail(data: AdminEmailData) {
 
           <!-- Eligibility & Services -->
           <tr>
-            <td style="padding: 0 40px 30px;">
-              <h2 style="margin: 0 0 20px; color: #062d16; font-size: 18px; font-weight: 600; border-bottom: 2px solid #C2F32C; padding-bottom: 10px;">
+            <td style="padding: 20px 32px;">
+              <h2 style="margin: 0 0 16px; color: #062d16; font-size: 15px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; opacity: 0.6;">
                 Eligibility & Interests
               </h2>
-              <table width="100%" cellpadding="0" cellspacing="0" style="font-size: 14px;">
+              <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #f9fafb; border-radius: 8px; padding: 20px; font-size: 13px;">
                 <tr>
-                  <td style="padding: 8px 0; color: #6b7280; width: 140px;">Income Bracket</td>
-                  <td style="padding: 8px 0; color: #111827;">${incomeLabel}</td>
+                  <td style="padding: 6px 0; color: #6b7280; width: 120px; font-size: 12px;">Income</td>
+                  <td style="padding: 6px 0; color: #111827; font-weight: 500;">${incomeLabel}</td>
                 </tr>
                 <tr>
-                  <td style="padding: 8px 0; color: #6b7280;">Rebate Eligible</td>
-                  <td style="padding: 8px 0;">
-                    <span style="display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; ${
-                      data.rebateEligible
-                        ? "background-color: #dcfce7; color: #166534;"
-                        : "background-color: #fef3c7; color: #92400e;"
-                    }">
-                      ${data.rebateEligible ? "Yes - Eligible" : "No - Over threshold"}
+                  <td style="padding: 6px 0; color: #6b7280; font-size: 12px;">Rebate</td>
+                  <td style="padding: 6px 0;">
+                    <span style="display: inline-block; padding: 4px 12px; border-radius: 6px; font-size: 11px; font-weight: 600; ${data.rebateEligible
+      ? "background-color: #dcfce7; color: #166534;"
+      : "background-color: #fef3c7; color: #92400e;"
+    }">
+                      ${data.rebateEligible ? "✓ Eligible" : "Not Eligible"}
                     </span>
                   </td>
                 </tr>
                 <tr>
-                  <td style="padding: 8px 0; color: #6b7280;">Interested In</td>
-                  <td style="padding: 8px 0; color: #111827; font-weight: 500;">${services}</td>
+                  <td style="padding: 6px 0; color: #6b7280; font-size: 12px;">Services</td>
+                  <td style="padding: 6px 0; color: #111827; font-weight: 600;">${services}</td>
                 </tr>
               </table>
             </td>
@@ -162,29 +155,34 @@ export async function sendAdminNotificationEmail(data: AdminEmailData) {
 
           <!-- Usage & Recommendations -->
           <tr>
-            <td style="padding: 0 40px 30px;">
-              <h2 style="margin: 0 0 20px; color: #062d16; font-size: 18px; font-weight: 600; border-bottom: 2px solid #C2F32C; padding-bottom: 10px;">
-                Usage & Recommendations
-              </h2>
-              <table width="100%" cellpadding="0" cellspacing="0" style="font-size: 14px;">
+            <td style="padding: 0 32px 28px;">
+              <table width="100%" cellpadding="0" cellspacing="0" style="background: linear-gradient(135deg, #062d16 0%, #0a4020 100%); border-radius: 8px; padding: 20px;">
                 <tr>
-                  <td style="padding: 8px 0; color: #6b7280; width: 140px;">Quarterly Bill</td>
-                  <td style="padding: 8px 0; color: #111827; font-weight: 600;">${formatCurrency(data.quarterlyBill)}</td>
+                  <td style="width: 50%; padding: 8px;">
+                    <p style="margin: 0 0 4px; color: #C2F32C; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">Quarterly Bill</p>
+                    <p style="margin: 0; color: #ffffff; font-size: 20px; font-weight: 700;">${formatCurrency(data.quarterlyBill)}</p>
+                  </td>
+                  <td style="width: 50%; padding: 8px; text-align: right;">
+                    <p style="margin: 0 0 4px; color: #C2F32C; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">Annual Savings</p>
+                    <p style="margin: 0; color: #C2F32C; font-size: 20px; font-weight: 700;">${formatCurrency(data.estimatedAnnualSavings)}</p>
+                  </td>
                 </tr>
                 <tr>
-                  <td style="padding: 8px 0; color: #6b7280;">Daytime Usage</td>
-                  <td style="padding: 8px 0; color: #111827;">${data.daytimeUsagePercent}%</td>
-                </tr>
-                <tr>
-                  <td style="padding: 8px 0; color: #6b7280;">Est. Annual Savings</td>
-                  <td style="padding: 8px 0; color: #166534; font-weight: 600;">${formatCurrency(data.estimatedAnnualSavings)}</td>
-                </tr>
-                <tr>
-                  <td style="padding: 8px 0; color: #6b7280;">Recommended Battery</td>
-                  <td style="padding: 8px 0;">
-                    <span style="display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; background-color: #C2F32C; color: #062d16;">
-                      ${data.recommendedBattery}
-                    </span>
+                  <td colspan="2" style="padding: 12px 8px 8px;">
+                    <table width="100%" cellpadding="0" cellspacing="0" style="border-top: 1px solid rgba(194, 243, 44, 0.2); padding-top: 12px;">
+                      <tr>
+                        <td style="color: rgba(255, 255, 255, 0.7); font-size: 12px;">Daytime Usage</td>
+                        <td style="text-align: right; color: #ffffff; font-weight: 600; font-size: 13px;">${data.daytimeUsagePercent}%</td>
+                      </tr>
+                      <tr>
+                        <td style="padding-top: 8px; color: rgba(255, 255, 255, 0.7); font-size: 12px;">Recommended Battery</td>
+                        <td style="padding-top: 8px; text-align: right;">
+                          <span style="display: inline-block; padding: 4px 12px; border-radius: 6px; font-size: 11px; font-weight: 600; background-color: #C2F32C; color: #062d16;">
+                            ${data.recommendedBattery}
+                          </span>
+                        </td>
+                      </tr>
+                    </table>
                   </td>
                 </tr>
               </table>
@@ -193,10 +191,9 @@ export async function sendAdminNotificationEmail(data: AdminEmailData) {
 
           <!-- Footer -->
           <tr>
-            <td style="background-color: #f9fafb; padding: 20px 40px; text-align: center; border-top: 1px solid #e5e7eb;">
-              <p style="margin: 0; color: #6b7280; font-size: 12px;">
-                Lead ID: ${data.leadId}<br>
-                Submitted: ${new Date().toLocaleString("en-AU", { timeZone: "Australia/Melbourne" })}
+            <td style="background-color: #f9fafb; padding: 16px 32px; text-align: center; border-top: 1px solid #e5e7eb;">
+              <p style="margin: 0; color: #9ca3af; font-size: 11px;">
+                Lead ID: ${data.leadId} • ${new Date().toLocaleString("en-AU", { timeZone: "Australia/Melbourne", dateStyle: "short", timeStyle: "short" })}
               </p>
             </td>
           </tr>
@@ -210,7 +207,7 @@ export async function sendAdminNotificationEmail(data: AdminEmailData) {
 
   try {
     await resend.emails.send({
-      from: "Pure Planet Leads <onboarding@resend.dev>",
+      from: FROM_EMAIL,
       to: [ADMIN_EMAIL],
       subject: `${temperatureEmoji} New Lead: ${data.fullName} - ${data.postcode} - Score: ${data.leadScore}/100`,
       html,
@@ -235,19 +232,19 @@ export async function sendCustomerConfirmationEmail(data: CustomerEmailData) {
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body style="margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background-color: #f4f4f4;">
-  <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #f4f4f4; padding: 20px;">
+<body style="margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background-color: #f9fafb;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #f9fafb; padding: 20px 0;">
     <tr>
       <td align="center">
-        <table width="600" cellpadding="0" cellspacing="0" style="background-color: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
-          <!-- Header -->
+        <table width="600" cellpadding="0" cellspacing="0" style="background-color: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); max-width: 600px;">
+          <!-- Compact Header with Logo -->
           <tr>
-            <td style="background-color: #062d16; padding: 40px; text-align: center;">
-              <img src="https://pureplanet.net.au/Pure%20planet%20Logo/logo.png" alt="Pure Planet" style="height: 50px; margin-bottom: 20px;">
-              <h1 style="margin: 0; color: #ffffff; font-size: 28px; font-weight: 700;">
+            <td style="background: linear-gradient(135deg, #062d16 0%, #0a4020 100%); padding: 28px 32px; text-align: center; border-bottom: 3px solid #C2F32C;">
+              <img src="https://pureplanet.net.au/Pure%20planet%20Logo/logo.png" alt="Pure Planet" style="height: 40px; margin-bottom: 14px; display: block; margin-left: auto; margin-right: auto;">
+              <h1 style="margin: 0; color: #ffffff; font-size: 22px; font-weight: 600; letter-spacing: -0.5px;">
                 Thank You, ${firstName}!
               </h1>
-              <p style="margin: 15px 0 0; color: #C2F32C; font-size: 16px;">
+              <p style="margin: 8px 0 0; color: #C2F32C; font-size: 13px; font-weight: 500;">
                 Your solar quote request has been received
               </p>
             </td>
@@ -255,12 +252,12 @@ export async function sendCustomerConfirmationEmail(data: CustomerEmailData) {
 
           <!-- Reference Number -->
           <tr>
-            <td style="padding: 30px 40px 0; text-align: center;">
+            <td style="padding: 28px 32px 0; text-align: center;">
               <table width="100%" cellpadding="0" cellspacing="0">
                 <tr>
-                  <td style="background-color: #f0fdf4; border: 2px dashed #C2F32C; border-radius: 12px; padding: 20px; text-align: center;">
-                    <p style="margin: 0; color: #6b7280; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">Your Reference Number</p>
-                    <p style="margin: 10px 0 0; color: #062d16; font-size: 28px; font-weight: 700; letter-spacing: 2px;">${data.referenceNumber}</p>
+                  <td style="background-color: #f0fdf4; border: 2px dashed #C2F32C; border-radius: 8px; padding: 16px; text-align: center;">
+                    <p style="margin: 0; color: #6b7280; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600;">Reference Number</p>
+                    <p style="margin: 6px 0 0; color: #062d16; font-size: 24px; font-weight: 700; letter-spacing: 2px;">${data.referenceNumber}</p>
                   </td>
                 </tr>
               </table>
@@ -269,51 +266,51 @@ export async function sendCustomerConfirmationEmail(data: CustomerEmailData) {
 
           <!-- What's Next -->
           <tr>
-            <td style="padding: 30px 40px;">
-              <h2 style="margin: 0 0 20px; color: #062d16; font-size: 20px; font-weight: 600;">
+            <td style="padding: 28px 32px 24px;">
+              <h2 style="margin: 0 0 18px; color: #062d16; font-size: 16px; font-weight: 600; letter-spacing: -0.3px;">
                 What Happens Next?
               </h2>
               <table width="100%" cellpadding="0" cellspacing="0">
                 <tr>
-                  <td style="padding: 15px 0; border-bottom: 1px solid #e5e7eb;">
+                  <td style="padding: 12px 0; border-bottom: 1px solid #f3f4f6;">
                     <table cellpadding="0" cellspacing="0">
                       <tr>
-                        <td style="width: 40px; vertical-align: top;">
-                          <div style="width: 32px; height: 32px; background-color: #C2F32C; border-radius: 50%; text-align: center; line-height: 32px; font-weight: 700; color: #062d16;">1</div>
+                        <td style="width: 36px; vertical-align: top;">
+                          <div style="width: 28px; height: 28px; background-color: #C2F32C; border-radius: 50%; text-align: center; line-height: 28px; font-weight: 700; color: #062d16; font-size: 13px;">1</div>
                         </td>
-                        <td style="padding-left: 15px;">
-                          <p style="margin: 0; color: #111827; font-weight: 600;">We Review Your Details</p>
-                          <p style="margin: 5px 0 0; color: #6b7280; font-size: 14px;">Our team is analyzing your energy usage and requirements.</p>
+                        <td style="padding-left: 12px;">
+                          <p style="margin: 0; color: #111827; font-weight: 600; font-size: 14px;">We Review Your Details</p>
+                          <p style="margin: 3px 0 0; color: #6b7280; font-size: 12px; line-height: 1.5;">Our team analyzes your energy usage and requirements.</p>
                         </td>
                       </tr>
                     </table>
                   </td>
                 </tr>
                 <tr>
-                  <td style="padding: 15px 0; border-bottom: 1px solid #e5e7eb;">
+                  <td style="padding: 12px 0; border-bottom: 1px solid #f3f4f6;">
                     <table cellpadding="0" cellspacing="0">
                       <tr>
-                        <td style="width: 40px; vertical-align: top;">
-                          <div style="width: 32px; height: 32px; background-color: #C2F32C; border-radius: 50%; text-align: center; line-height: 32px; font-weight: 700; color: #062d16;">2</div>
+                        <td style="width: 36px; vertical-align: top;">
+                          <div style="width: 28px; height: 28px; background-color: #C2F32C; border-radius: 50%; text-align: center; line-height: 28px; font-weight: 700; color: #062d16; font-size: 13px;">2</div>
                         </td>
-                        <td style="padding-left: 15px;">
-                          <p style="margin: 0; color: #111827; font-weight: 600;">We Contact You</p>
-                          <p style="margin: 5px 0 0; color: #6b7280; font-size: 14px;">A Pure Planet specialist will call you within 24 hours.</p>
+                        <td style="padding-left: 12px;">
+                          <p style="margin: 0; color: #111827; font-weight: 600; font-size: 14px;">We Contact You</p>
+                          <p style="margin: 3px 0 0; color: #6b7280; font-size: 12px; line-height: 1.5;">A Pure Planet specialist will call you within 24 hours.</p>
                         </td>
                       </tr>
                     </table>
                   </td>
                 </tr>
                 <tr>
-                  <td style="padding: 15px 0;">
+                  <td style="padding: 12px 0;">
                     <table cellpadding="0" cellspacing="0">
                       <tr>
-                        <td style="width: 40px; vertical-align: top;">
-                          <div style="width: 32px; height: 32px; background-color: #C2F32C; border-radius: 50%; text-align: center; line-height: 32px; font-weight: 700; color: #062d16;">3</div>
+                        <td style="width: 36px; vertical-align: top;">
+                          <div style="width: 28px; height: 28px; background-color: #C2F32C; border-radius: 50%; text-align: center; line-height: 28px; font-weight: 700; color: #062d16; font-size: 13px;">3</div>
                         </td>
-                        <td style="padding-left: 15px;">
-                          <p style="margin: 0; color: #111827; font-weight: 600;">Personalized Quote</p>
-                          <p style="margin: 5px 0 0; color: #6b7280; font-size: 14px;">We'll prepare a customized solar solution for your home.</p>
+                        <td style="padding-left: 12px;">
+                          <p style="margin: 0; color: #111827; font-weight: 600; font-size: 14px;">Personalized Quote</p>
+                          <p style="margin: 3px 0 0; color: #6b7280; font-size: 12px; line-height: 1.5;">We'll prepare a customized solar solution for your home.</p>
                         </td>
                       </tr>
                     </table>
@@ -325,31 +322,30 @@ export async function sendCustomerConfirmationEmail(data: CustomerEmailData) {
 
           <!-- Summary Card -->
           <tr>
-            <td style="padding: 0 40px 30px;">
-              <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #f9fafb; border-radius: 12px; overflow: hidden;">
+            <td style="padding: 0 32px 28px;">
+              <table width="100%" cellpadding="0" cellspacing="0" style="background: linear-gradient(135deg, #062d16 0%, #0a4020 100%); border-radius: 8px; overflow: hidden;">
                 <tr>
-                  <td style="padding: 25px;">
-                    <h3 style="margin: 0 0 15px; color: #062d16; font-size: 16px; font-weight: 600;">Your Quote Summary</h3>
-                    <table width="100%" cellpadding="0" cellspacing="0" style="font-size: 14px;">
+                  <td style="padding: 20px;">
+                    <h3 style="margin: 0 0 14px; color: #C2F32C; font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">Your Quote Summary</h3>
+                    <table width="100%" cellpadding="0" cellspacing="0" style="font-size: 13px;">
                       <tr>
-                        <td style="padding: 8px 0; color: #6b7280;">Rebate Eligibility</td>
-                        <td style="padding: 8px 0; text-align: right;">
-                          <span style="display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; ${
-                            data.rebateEligible
-                              ? "background-color: #dcfce7; color: #166534;"
-                              : "background-color: #fef3c7; color: #92400e;"
-                          }">
-                            ${data.rebateEligible ? "Eligible for $1,400" : "Federal Incentives Apply"}
+                        <td style="padding: 6px 0; color: rgba(255, 255, 255, 0.7);">Rebate Status</td>
+                        <td style="padding: 6px 0; text-align: right;">
+                          <span style="display: inline-block; padding: 4px 12px; border-radius: 6px; font-size: 11px; font-weight: 600; ${data.rebateEligible
+      ? "background-color: #dcfce7; color: #166534;"
+      : "background-color: #fef3c7; color: #92400e;"
+    }">
+                            ${data.rebateEligible ? "✓ $1,400 Eligible" : "Federal Incentives"}
                           </span>
                         </td>
                       </tr>
                       <tr>
-                        <td style="padding: 8px 0; color: #6b7280;">Estimated Annual Savings</td>
-                        <td style="padding: 8px 0; text-align: right; color: #166534; font-weight: 700; font-size: 18px;">${formatCurrency(data.estimatedAnnualSavings)}</td>
+                        <td style="padding: 12px 0 6px; color: rgba(255, 255, 255, 0.7);">Est. Annual Savings</td>
+                        <td style="padding: 12px 0 6px; text-align: right; color: #C2F32C; font-weight: 700; font-size: 20px;">${formatCurrency(data.estimatedAnnualSavings)}</td>
                       </tr>
                       <tr>
-                        <td style="padding: 8px 0; color: #6b7280;">Recommended Battery</td>
-                        <td style="padding: 8px 0; text-align: right; color: #062d16; font-weight: 600;">${data.recommendedBattery}</td>
+                        <td style="padding: 6px 0; color: rgba(255, 255, 255, 0.7);">Recommended Battery</td>
+                        <td style="padding: 6px 0; text-align: right; color: #ffffff; font-weight: 600; font-size: 13px;">${data.recommendedBattery}</td>
                       </tr>
                     </table>
                   </td>
@@ -360,24 +356,24 @@ export async function sendCustomerConfirmationEmail(data: CustomerEmailData) {
 
           <!-- CTA Button -->
           <tr>
-            <td style="padding: 0 40px 30px; text-align: center;">
-              <a href="https://pureplanet.net.au/services" style="display: inline-block; background-color: #C2F32C; color: #062d16; text-decoration: none; padding: 16px 40px; border-radius: 30px; font-weight: 700; font-size: 16px;">
-                Explore Our Services
+            <td style="padding: 0 32px 24px; text-align: center;">
+              <a href="https://pureplanet.net.au/services" style="display: inline-block; background-color: #C2F32C; color: #062d16; text-decoration: none; padding: 14px 36px; border-radius: 8px; font-weight: 600; font-size: 14px; letter-spacing: -0.3px;">
+                Explore Our Services →
               </a>
             </td>
           </tr>
 
           <!-- Contact Info -->
           <tr>
-            <td style="padding: 0 40px 30px;">
-              <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #062d16; border-radius: 12px; overflow: hidden;">
+            <td style="padding: 0 32px 28px;">
+              <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #f9fafb; border-radius: 8px; border: 1px solid #e5e7eb; overflow: hidden;">
                 <tr>
-                  <td style="padding: 25px; text-align: center;">
-                    <p style="margin: 0 0 10px; color: #C2F32C; font-weight: 600; font-size: 14px;">Have questions? Get in touch!</p>
-                    <p style="margin: 0; color: #ffffff; font-size: 14px;">
-                      <a href="mailto:info@pureplanet.net.au" style="color: #ffffff; text-decoration: none;">info@pureplanet.net.au</a>
-                      <span style="color: #6b7280; margin: 0 10px;">|</span>
-                      <a href="tel:1300123456" style="color: #ffffff; text-decoration: none;">1300 123 456</a>
+                  <td style="padding: 18px; text-align: center;">
+                    <p style="margin: 0 0 8px; color: #062d16; font-weight: 600; font-size: 13px;">Questions? We're here to help!</p>
+                    <p style="margin: 0; color: #6b7280; font-size: 12px;">
+                      <a href="mailto:info@pureplanet.net.au" style="color: #062d16; text-decoration: none; font-weight: 500;">info@pureplanet.net.au</a>
+                      <span style="color: #d1d5db; margin: 0 8px;">•</span>
+                      <a href="tel:0450010419" style="color: #062d16; text-decoration: none; font-weight: 500;">0450 010 419</a>
                     </p>
                   </td>
                 </tr>
@@ -387,13 +383,12 @@ export async function sendCustomerConfirmationEmail(data: CustomerEmailData) {
 
           <!-- Footer -->
           <tr>
-            <td style="background-color: #f9fafb; padding: 25px 40px; text-align: center; border-top: 1px solid #e5e7eb;">
-              <p style="margin: 0 0 10px; color: #6b7280; font-size: 12px;">
-                Pure Planet | 11 Sant Court, Ravenhall VIC 3023
+            <td style="background-color: #f9fafb; padding: 20px 32px; text-align: center; border-top: 1px solid #e5e7eb;">
+              <p style="margin: 0 0 6px; color: #6b7280; font-size: 11px;">
+                Pure Planet | 11 Sant Court Ravenhall VIC 3023
               </p>
-              <p style="margin: 0; color: #9ca3af; font-size: 11px;">
-                You received this email because you requested a solar quote from Pure Planet.<br>
-                <a href="https://pureplanet.net.au/privacy-policy" style="color: #9ca3af;">Privacy Policy</a>
+              <p style="margin: 0; color: #9ca3af; font-size: 10px;">
+                You received this because you requested a quote • <a href="https://pureplanet.net.au/privacy-policy" style="color: #9ca3af; text-decoration: none;">Privacy Policy</a>
               </p>
             </td>
           </tr>
@@ -407,7 +402,7 @@ export async function sendCustomerConfirmationEmail(data: CustomerEmailData) {
 
   try {
     await resend.emails.send({
-      from: "Pure Planet <onboarding@resend.dev>",
+      from: FROM_EMAIL,
       to: [data.email],
       subject: `Your Pure Planet Solar Quote Request - Reference ${data.referenceNumber}`,
       html,

@@ -199,9 +199,9 @@ export default function QuoteWizard({
   };
 
   return (
-    <div className="max-w-xl mx-auto">
+    <div className="max-w-2xl md:max-w-4xl lg:max-w-5xl xl:max-w-6xl 2xl:max-w-7xl mx-auto">
       {/* Form Card */}
-      <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-6 sm:p-8 md:p-10 shadow-2xl">
+      <div className="bg-[#062d16]/95 backdrop-blur-xl border border-white/10 rounded-3xl p-6 sm:p-8 md:p-10 lg:p-12 shadow-2xl">
         {/* Progress Bar */}
         <ProgressBar currentStep={currentStep} totalSteps={TOTAL_STEPS} />
 

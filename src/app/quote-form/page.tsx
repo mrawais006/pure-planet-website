@@ -40,15 +40,15 @@ export default function QuoteFormPage() {
   };
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-[#062d16] via-[#0a3d1e] to-[#062d16]">
+    <main className="min-h-screen bg-white">
       <Navbar />
 
       {/* Hero Section with form */}
       <section className="relative pt-32 pb-16 md:pt-40 md:pb-24">
         {/* Background decorative elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-[#C2F32C]/5 rounded-full blur-3xl" />
-          <div className="absolute bottom-20 right-10 w-96 h-96 bg-[#C2F32C]/5 rounded-full blur-3xl" />
+          <div className="absolute top-20 left-10 w-72 h-72 bg-[#C2F32C]/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-[#062d16]/5 rounded-full blur-3xl" />
         </div>
 
         <div className="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-6 md:px-12">
@@ -56,20 +56,20 @@ export default function QuoteFormPage() {
             <>
               {/* Header */}
               <div className="text-center mb-10 md:mb-14">
-                <div className="inline-flex items-center gap-2 bg-[#C2F32C]/10 border border-[#C2F32C]/30 rounded-full px-4 py-2 mb-6">
+                <div className="inline-flex items-center gap-2 bg-[#C2F32C]/20 border border-[#C2F32C] rounded-full px-4 py-2 mb-6">
                   <span className="w-2 h-2 bg-[#C2F32C] rounded-full animate-pulse" />
-                  <span className="text-[#C2F32C] text-sm font-medium">
+                  <span className="text-[#062d16] text-sm font-semibold">
                     Victorian Solar Rebate Available
                   </span>
                 </div>
 
-                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#062d16] mb-4 leading-tight">
                   Check Your Solar Rebate
                   <br />
                   <span className="text-[#C2F32C]">Eligibility in 60 Seconds</span>
                 </h1>
 
-                <p className="text-gray-300 text-base sm:text-lg md:text-xl max-w-2xl mx-auto">
+                <p className="text-gray-700 text-base sm:text-lg md:text-xl max-w-3xl mx-auto">
                   Find out if you qualify for the $1,400 Victorian Solar Rebate
                   and get a personalized quote for your home.
                 </p>
@@ -83,7 +83,7 @@ export default function QuoteFormPage() {
               />
 
               {/* Trust Badges */}
-              <div className="flex flex-wrap justify-center items-center gap-6 md:gap-10 mt-10 text-gray-400 text-sm">
+              <div className="flex flex-wrap justify-center items-center gap-6 md:gap-10 mt-10 text-gray-600 text-sm font-medium">
                 <div className="flex items-center gap-2">
                   <svg
                     className="w-5 h-5 text-[#C2F32C]"
@@ -138,7 +138,7 @@ export default function QuoteFormPage() {
       {!isSubmitted && (
         <section className="pb-16">
           <div className="max-w-2xl mx-auto px-4 sm:px-6">
-            <div className="text-center text-gray-500 text-xs space-y-2">
+            <div className="text-center text-gray-600 text-xs space-y-2">
               <p>
                 * Savings estimates are indicative only and depend on your
                 specific circumstances.
