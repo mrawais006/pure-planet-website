@@ -12,12 +12,14 @@ import FAQ from "@/components/home/FAQ";
 import ContactExperts from "@/components/home/ContactExperts";
 import Footer from "@/components/layout/Footer";
 
+
 export default function Home() {
   return (
     <main className="min-h-screen font-sans bg-white">
       <Navbar />
       <Hero />
       <Experience />
+
       <Services />
       <SolarPanelInfo />
       <Projects />

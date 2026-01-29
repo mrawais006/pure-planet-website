@@ -3,6 +3,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Navbar from "@/components/home/Navbar";
+import Partners from "@/components/home/Partners";
 import Footer from "@/components/layout/Footer";
 
 const ServicesPage = () => {
@@ -231,51 +232,7 @@ const ServicesPage = () => {
             {/* =========================================
                4. HIGH-EFFICIENCY PRODUCTS SHOWCASE
                ========================================= */}
-            <section className="py-24 bg-gray-50">
-                <div className="max-w-[1440px] mx-auto px-6 md:px-12">
-                    <div className="text-center mb-16">
-                        <h2 className="text-3xl md:text-4xl font-display font-bold text-[#062d16]">Our Premium Technology Partners</h2>
-                    </div>
-
-                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-                        {/* Product 1: Jinko */}
-                        <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition-all text-center group">
-                            <div className="h-48 relative mb-6 grayscale group-hover:grayscale-0 transition-all duration-500">
-                                <Image src="/images/services/showcase-jinko.png" alt="Jinko Solar Panel" fill className="object-contain" />
-                            </div>
-                            <h4 className="font-bold text-[#062d16]">Jinko / Canadian</h4>
-                            <p className="text-sm text-gray-500 mt-1">440W+ High Efficiency</p>
-                        </div>
-
-                        {/* Product 2: Fox ESS */}
-                        <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition-all text-center group">
-                            <div className="h-48 relative mb-6 grayscale group-hover:grayscale-0 transition-all duration-500">
-                                <Image src="/images/services/showcase-fox.png" alt="Fox ESS Battery" fill className="object-contain" />
-                            </div>
-                            <h4 className="font-bold text-[#062d16]">Fox ESS</h4>
-                            <p className="text-sm text-gray-500 mt-1">Modular Storage</p>
-                        </div>
-
-                        {/* Product 3: NeoVolt */}
-                        <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition-all text-center group">
-                            <div className="h-48 relative mb-6 grayscale group-hover:grayscale-0 transition-all duration-500">
-                                <Image src="/images/services/showcase-neovolt.png" alt="NeoVolt Battery" fill className="object-contain" />
-                            </div>
-                            <h4 className="font-bold text-[#062d16]">NeoVolt</h4>
-                            <p className="text-sm text-gray-500 mt-1">9.6kWh High Capacity</p>
-                        </div>
-
-                        {/* Product 4: Heat Pump */}
-                        <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition-all text-center group">
-                            <div className="h-48 relative mb-6 grayscale group-hover:grayscale-0 transition-all duration-500">
-                                <Image src="/images/services/showcase-heat-pump.png" alt="Heat Pump System" fill className="object-contain" />
-                            </div>
-                            <h4 className="font-bold text-[#062d16]">Heat Pump</h4>
-                            <p className="text-sm text-gray-500 mt-1">VEU Approved</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            <Partners />
 
             {/* =========================================
                5. TRUST & SOCIAL PROOF

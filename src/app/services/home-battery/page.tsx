@@ -6,6 +6,8 @@ import Navbar from "@/components/home/Navbar";
 import Footer from "@/components/layout/Footer";
 import Testimonials from "@/components/home/Testimonials";
 import HighEfficiencySection from "@/components/services/HighEfficiencySection";
+import NeoVoltSpecs from "@/components/services/NeoVoltSpecs";
+import FoxEssSpecs from "@/components/services/FoxEssSpecs";
 import FAQ from "@/components/shared/FAQ";
 import CallToAction from "@/components/shared/CallToAction";
 
@@ -98,7 +100,13 @@ export default function HomeBatteryPage() {
                 </div>
             </section>
 
-            {/* 2b. Home Battery Storage Solution */}
+            {/* 2a. NeoVolt Showcase */}
+            <NeoVoltSpecs />
+
+            {/* 2b. Fox ESS Showcase */}
+            <FoxEssSpecs />
+
+            {/* 2c. Home Battery Storage Solution */}
             <section className="py-24 bg-white">
                 <div className="max-w-[1440px] mx-auto px-6 md:px-12 grid lg:grid-cols-2 gap-16 items-center">
                     <div>
