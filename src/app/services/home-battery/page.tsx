@@ -8,6 +8,15 @@ import Testimonials from "@/components/home/Testimonials";
 import HighEfficiencySection from "@/components/services/HighEfficiencySection";
 import NeoVoltSpecs from "@/components/services/NeoVoltSpecs";
 import FoxEssSpecs from "@/components/services/FoxEssSpecs";
+import FoxEssEQ5000Specs from "@/components/services/FoxEssEQ5000Specs";
+import FoxEssEQ6000Specs from "@/components/services/FoxEssEQ6000Specs";
+import FoxEssEP5Specs from "@/components/services/FoxEssEP5Specs";
+import FoxEssEP6Specs from "@/components/services/FoxEssEP6Specs";
+import FoxEssEP11Specs from "@/components/services/FoxEssEP11Specs";
+import FoxEssEP12Specs from "@/components/services/FoxEssEP12Specs";
+import FoxEssCQ6Specs from "@/components/services/FoxEssCQ6Specs";
+import FoxEssCQ7Specs from "@/components/services/FoxEssCQ7Specs";
+import FoxEssCQ16Specs from "@/components/services/FoxEssCQ16Specs";
 import FAQ from "@/components/shared/FAQ";
 import CallToAction from "@/components/shared/CallToAction";
 
@@ -104,7 +113,17 @@ export default function HomeBatteryPage() {
             <NeoVoltSpecs />
 
             {/* 2b. Fox ESS Showcase */}
+            {/* 2b. Fox ESS Showcase */}
             <FoxEssSpecs />
+            <FoxEssEQ5000Specs />
+            <FoxEssEQ6000Specs />
+            <FoxEssEP5Specs />
+            <FoxEssEP6Specs />
+            <FoxEssEP11Specs />
+            <FoxEssEP12Specs />
+            <FoxEssCQ6Specs />
+            <FoxEssCQ7Specs />
+            <FoxEssCQ16Specs />
 
             {/* 2c. Home Battery Storage Solution */}
             <section className="py-24 bg-white">

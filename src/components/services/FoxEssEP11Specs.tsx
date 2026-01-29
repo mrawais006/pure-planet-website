@@ -1,9 +1,9 @@
 import Image from "next/image";
 import React from "react";
 
-const FoxEssSpecs = () => {
+const FoxEssEP11Specs = () => {
     return (
-        <section className="py-24 bg-white relative overflow-hidden">
+        <section className="py-24 bg-white relative overflow-hidden text-[#062d16]">
             {/* Ambient Background Elements */}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-7xl pointer-events-none">
                 <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#C2F32C]/5 rounded-full blur-[100px]"></div>
@@ -15,13 +15,13 @@ const FoxEssSpecs = () => {
                 {/* Header */}
                 <div className="text-center max-w-3xl mx-auto mb-16">
                     <span className="inline-block py-1 px-3 rounded-full bg-[#C2F32C]/10 border border-[#C2F32C]/20 text-[#062d16] text-xs font-bold tracking-widest uppercase mb-4">
-                        High Voltage Series
+                        High Voltage Storage Battery
                     </span>
                     <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-[#062d16] mb-6">
-                        Fox ESS <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#C2F32C] to-green-600">EQ4800</span>
+                        Fox ESS <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#C2F32C] to-green-600">EP11</span>
                     </h2>
                     <p className="text-gray-500 text-lg leading-relaxed">
-                        A high-performance energy storage solution designed for maximum efficiency, flexibility, and easy installation.
+                        A high-capacity, expandable energy storage system designed for maximum power and efficiency.
                     </p>
                 </div>
 
@@ -31,18 +31,18 @@ const FoxEssSpecs = () => {
                     {/* Left Column Specs */}
                     <div className="space-y-6 flex flex-col lg:items-end lg:text-right order-2 lg:order-1">
                         <SpecCard
-                            title="4.66kWh Module"
-                            desc="High energy density modules for compact storage."
-                            icon={<BatteryIcon />}
+                            title="Expandable System"
+                            desc="Energy range from 10.36kWh up to 41.60kWh."
+                            icon={<StackIcon />}
                         />
                         <SpecCard
-                            title="High Voltage"
-                            desc="Optimized for high efficiency energy conversion."
+                            title="High Efficiency"
+                            desc="Advanced technology ensures optimal energy utilization."
                             icon={<BoltIcon />}
                         />
                         <SpecCard
                             title="10 Year Warranty"
-                            desc="Industry-leading coverage guaranteeing performance."
+                            desc="Long-term reliability backed by a decade of coverage."
                             icon={<BadgeIcon />}
                         />
                     </div>
@@ -54,8 +54,8 @@ const FoxEssSpecs = () => {
                             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-gradient-to-b from-[#C2F32C]/20 to-transparent rounded-full blur-3xl opacity-50"></div>
 
                             <Image
-                                src="/fox-ess/ECS.1-406.png"
-                                alt="Fox ESS EQ4800 Battery Stack"
+                                src="/fox-ess/EP11.1.png"
+                                alt="Fox ESS EP11 Battery"
                                 fill
                                 className="object-contain drop-shadow-2xl z-10 hover:scale-105 transition-transform duration-700"
                                 priority
@@ -66,19 +66,19 @@ const FoxEssSpecs = () => {
                     {/* Right Column Specs */}
                     <div className="space-y-6 flex flex-col lg:items-start lg:text-left order-3">
                         <SpecCard
-                            title="Expandable System"
-                            desc="Scale from 4.66kWh up to 41.93kWh capacity."
-                            icon={<StackIcon />}
+                            title="High Voltage"
+                            desc="Superior performance for high-demand applications."
+                            icon={<ShieldIcon />}
                         />
                         <SpecCard
-                            title="IP65 Protection"
-                            desc="Engineered for durability indoors or outdoors."
+                            title="IP65 Rated"
+                            desc="Weather-resistant design for indoor or outdoor placement."
                             icon={<UmbrellaIcon />}
                         />
                         <SpecCard
-                            title="Easy Installation"
-                            desc="Plug-and-play modular stacking design."
-                            icon={<ShieldIcon />}
+                            title="Smart Monitoring"
+                            desc="Seamless integration with remote monitoring systems."
+                            icon={<BatteryIcon />}
                         />
                     </div>
                 </div>
@@ -92,13 +92,13 @@ const FoxEssSpecs = () => {
                         Full Technical Specifications
                     </h3>
                     <div className="grid md:grid-cols-2 gap-x-12 gap-y-4 text-sm">
-                        <SpecRow label="Module Capacity" value="4.66kWh" />
-                        <SpecRow label="Max Capacity" value="41.93kWh" />
-                        <SpecRow label="Nominal Voltage" value="48V" />
-                        <SpecRow label="Scalability" value="Max 7 Modules in Series" />
+                        <SpecRow label="Nominal Capacity" value="10.36kWh" />
+                        <SpecRow label="Max Capacity" value="41.60kWh (Max 4 Modules)" />
+                        <SpecRow label="Nominal Voltage" value="High Voltage" />
                         <SpecRow label="Efficiency" value="≥97%" />
-                        <SpecRow label="Application" value="Grid-Tied / Off-Grid" />
-                        <SpecRow label="Protection Class" value="IP65" />
+                        <SpecRow label="Battery Type" value="LiFePO4 (LFP)" />
+                        <SpecRow label="Installation" value="Floor / Wall Mount" />
+                        <SpecRow label="Protection Level" value="IP65" />
                         <SpecRow label="Communication" value="CAN / RS485" />
                     </div>
                 </div>
@@ -107,7 +107,7 @@ const FoxEssSpecs = () => {
     );
 };
 
-// Helper Components for Cleaner Code
+// Helper Components
 const SpecCard = ({ title, desc, icon }: { title: string, desc: string, icon: React.ReactNode }) => (
     <div className="group bg-white/50 backdrop-blur-sm p-6 rounded-2xl border border-gray-100 hover:border-[#C2F32C] hover:shadow-lg transition-all duration-300">
         <div className="lg:hidden mb-3 text-[#062d16]">{icon}</div> {/* Mobile Icon */}
@@ -146,4 +146,4 @@ const StackIcon = () => (
     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" /></svg>
 );
 
-export default FoxEssSpecs;
+export default FoxEssEP11Specs;
