@@ -51,7 +51,7 @@ const SolarPanelInfo = () => {
                     <div className={`relative h-[400px] md:h-[500px] w-full transition-all duration-500 ${activeTab === 'powerhouse' ? 'order-2 md:order-2' : 'order-1 md:order-1'}`}>
                         <div className="relative w-full h-full">
                             <Image
-                                src={activeTab === 'saver' ? "/images/home/fox_ess_final_v2.png" : "/images/home/neovolt_hero.png"}
+                                src={activeTab === 'saver' ? "/images/home/fox_ess_final_v2.png" : "/images/services/neovolt-internal-view.jpg"}
                                 alt={activeTab === 'saver' ? "Fox ESS Stackable Battery" : "NeoVolt Home Battery"}
                                 fill
                                 className="object-contain drop-shadow-2xl"

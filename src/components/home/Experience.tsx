@@ -4,8 +4,8 @@ import React from "react";
 
 const Experience = () => {
     // Images based on analysis
-    const img1 = "/images/home/79dc47370870f61f1d2fc84fa0e66abd5060318a.png"; // Workers on roof
-    const img2 = "/images/home/33aff140cdc213167a87fe899ae190714c29a9ed.png"; // Battery system (Equipment)
+    const img1 = "/images/home/experience-solar-installer.jpg"; // Solar/Roof aspect
+    const img2 = "/images/home/experience-battery-system.jpg"; // Battery/System aspect
 
     return (
         <section className="py-24 bg-[#F3FCE9]">

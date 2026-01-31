@@ -12,39 +12,28 @@ interface HighEfficiencySectionProps {
 const defaultProducts = [
     {
         id: 1,
-        name: "Home Battery Storage",
-        image: "/Pure Planet Images/Heat Pump/air-condition-outdoor-unit-isolated-transparent-background.png",
-        originalPrice: "$1,800.00",
-        currentPrice: "$1,750.00",
-        rating: 5,
-        badge: { text: "Sold", color: "red" }
+        name: "Fox ESS ECS Series",
+        image: "/fox-ess/ECS.1-406.png",
     },
     {
         id: 2,
-        name: "Energy-Efficient Heat Pump",
-        image: "/Pure Planet Images/Heat Pump/air-conditioner-condenser-unit-isolated-white-background.png",
-        originalPrice: "$5,500.00",
-        currentPrice: "$5,000.00",
-        rating: 5,
-        badge: { text: "Sale", color: "green" }
+        name: "Fox ESS EP6",
+        image: "/fox-ess/EP6.1.png",
     },
     {
         id: 3,
-        name: "Home Battery Solution",
-        image: "/Pure Planet Images/Heat Pump/modern-air-purifier-with-hepa-filter-digital-display.png",
-        originalPrice: "$2,970.00",
-        currentPrice: "$2,940.00",
-        rating: 5,
-        badge: { text: "Sale", color: "green" }
+        name: "Fox ESS EP12",
+        image: "/fox-ess/EP12.1.png",
     },
     {
         id: 4,
-        name: "Solar Panel",
-        image: "/Pure Planet Images/Heat Pump/solar-panel-isolated-white-background.png",
-        originalPrice: "$2,650.00",
-        currentPrice: "$2,545.00",
-        rating: 3,
-        badge: { text: "Sale", color: "green" }
+        name: "NeoVolt Battery",
+        image: "/images/services/neovolt-internal-view.jpg",
+    },
+    {
+        id: 5,
+        name: "Jinko Solar Panel",
+        image: "/images/services/showcase-jinko.png",
     }
 ];
 

@@ -8,9 +8,10 @@ type Product = {
     id: number;
     name: string;
     image: string;
+    // Optional props in case they are needed later or passed from legacy data
     originalPrice?: string;
-    currentPrice: string;
-    rating: number;
+    currentPrice?: string;
+    rating?: number;
     badge?: {
         text: string;
         color: "red" | "green" | "black";
@@ -53,42 +54,13 @@ const ProductCarousel: React.FC<ProductCarouselProps> = ({ products }) => {
                     {products.map((product) => (
                         <div key={product.id} className="flex-[0_0_100%] md:flex-[0_0_50%] lg:flex-[0_0_25%] min-w-0 pl-6">
                             <div className="group/card cursor-pointer">
-                                <div className="bg-[#F4F9F6] rounded-xl p-8 mb-6 relative h-[350px] flex items-center justify-center transition hover:shadow-lg">
-                                    {/* Badges */}
-                                    {product.badge && (
-                                        <div className="absolute top-4 left-4 flex flex-col gap-2 z-10">
-                                            <span
-                                                className={`text-[10px] font-bold px-2 py-1 rounded text-white uppercase text-center min-w-[40px] ${product.badge.color === 'red' ? 'bg-[#D60000]' :
-                                                        product.badge.color === 'green' ? 'bg-[#BAF300] text-black' : 'bg-black'
-                                                    }`}
-                                            >
-                                                {product.badge.text}
-                                            </span>
-                                            {/* Example of implementing stacked badges if needed, for now just rendering the primary one pass props */}
-                                            {product.name.includes("Battery Storage") && product.badge.text === 'Sold' && (
-                                                <span className="bg-black text-[10px] font-bold px-2 py-1 rounded text-white uppercase text-center min-w-[40px]">New</span>
-                                            )}
-                                            {product.name.includes("Battery Solution") && (
-                                                <span className="bg-black text-[10px] font-bold px-2 py-1 rounded text-white uppercase text-center min-w-[40px]">New</span>
-                                            )}
-                                        </div>
-                                    )}
-
+                                <div className="bg-[#E2E8E5] rounded-xl p-8 mb-6 relative h-[350px] flex items-center justify-center transition hover:shadow-lg">
                                     <div className="relative w-56 h-56 group-hover/card:scale-110 transition duration-300">
                                         <Image src={product.image} alt={product.name} fill className="object-contain" />
                                     </div>
                                 </div>
                                 <div className="text-center">
                                     <h3 className="font-bold text-lg mb-1">{product.name}</h3>
-                                    <p className="text-xs font-bold font-sans">
-                                        {product.originalPrice && <span className="text-gray-400 line-through mr-2">{product.originalPrice}</span>}
-                                        <span>{product.currentPrice}</span>
-                                    </p>
-                                    <div className="flex justify-center gap-1 mt-2 text-[#FFC400] text-xs">
-                                        {[...Array(5)].map((_, i) => (
-                                            <span key={i} className={i < product.rating ? "text-[#FFC400]" : "text-gray-300"}>★</span>
-                                        ))}
-                                    </div>
                                 </div>
                             </div>
                         </div>

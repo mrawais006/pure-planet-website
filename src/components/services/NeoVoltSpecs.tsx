@@ -1,105 +1,100 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const NeoVoltSpecs = () => {
     return (
         <section className="py-24 bg-white relative overflow-hidden">
-            {/* Ambient Background Elements */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-7xl pointer-events-none">
-                <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#C2F32C]/5 rounded-full blur-[100px]"></div>
-                <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#062d16]/5 rounded-full blur-[100px]"></div>
-            </div>
-
             <div className="max-w-[1440px] mx-auto px-6 md:px-12 relative z-10">
-
-                {/* Header */}
-                <div className="text-center max-w-3xl mx-auto mb-16">
-                    <span className="inline-block py-1 px-3 rounded-full bg-[#C2F32C]/10 border border-[#C2F32C]/20 text-[#062d16] text-xs font-bold tracking-widest uppercase mb-4">
-                        The Heart of Your Energy System
-                    </span>
-                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-[#062d16] mb-6">
-                        NeoVolt <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#C2F32C] to-green-600">Performance</span>
+                {/* Header Section */}
+                <div className="mb-12 max-w-4xl">
+                    <div className="flex items-center gap-4 mb-6">
+                        <div className="bg-[#062d16] text-white px-3 py-1 font-bold tracking-wider text-sm">NEOVOLT</div>
+                        <span className="text-gray-400 text-xs tracking-[0.2em] font-medium uppercase">PREMIUM PARTNER</span>
+                    </div>
+                    <h2 className="text-4xl md:text-5xl font-display font-bold text-[#062d16] mb-6">
+                        Engineering for the Modern Home
                     </h2>
-                    <p className="text-gray-500 text-lg leading-relaxed">
-                        Engineered for Australian conditions. The NeoVolt BW-BAT-9.6P combines advanced LFP chemistry with a modular design for ultimate safety and longevity.
+                    <p className="text-gray-500 text-lg leading-relaxed max-w-2xl">
+                        The NeoVolt range represents the pinnacle of modular energy storage, combining sleek minimalist aesthetics with advanced LFP chemistry for unmatched safety and longevity.
                     </p>
                 </div>
 
-                {/* Hero Layout: Left Specs - Image - Right Specs */}
-                <div className="grid lg:grid-cols-3 gap-8 items-center mb-20">
+                {/* Main Card Content */}
+                <div className="bg-white rounded-[3rem] shadow-xl border border-gray-100 overflow-hidden flex flex-col lg:flex-row">
 
-                    {/* Left Column Specs */}
-                    <div className="space-y-6 flex flex-col lg:items-end lg:text-right order-2 lg:order-1">
-                        <SpecCard
-                            title="9.6kWh Capacity"
-                            desc="High-density storage to power your home through the night."
-                            icon={<BatteryIcon />}
-                        />
-                        <SpecCard
-                            title="LFP Technology"
-                            desc="Lithium Iron Phosphate chemistry for maximum safety and thermal stability."
-                            icon={<ShieldIcon />}
-                        />
-                        <SpecCard
-                            title="10 Year Warranty"
-                            desc="Industry-leading coverage guaranteeing performance for a decade."
-                            icon={<BadgeIcon />}
-                        />
+                    {/* Left Content Column */}
+                    <div className="p-8 lg:p-16 flex-1 lg:max-w-[55%] flex flex-col justify-center">
+                        <div className="flex items-center gap-2 mb-6 text-[#C2F32C] font-bold tracking-wider text-sm uppercase">
+                            <span>★</span> FLAGSHIP PERFORMANCE
+                        </div>
+
+                        <h3 className="text-3xl md:text-4xl font-bold text-[#062d16] mb-10">
+                            NeoVolt Modular Series
+                        </h3>
+
+                        {/* Feature Grid */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-10 mb-12">
+                            <FeatureItem
+                                icon={<BadgeIcon />}
+                                title="10-Year Warranty"
+                                desc="Guaranteed durability"
+                            />
+                            <FeatureItem
+                                icon={<ShieldIcon />} // Using ShieldIcon as proxy for "Smart App Control" visually if needed, or stick to relevant icons
+                                title="Smart App Control"
+                                desc="Real-time monitoring"
+                            />
+                            <FeatureItem
+                                icon={<BatteryIcon />} // Using BatteryIcon for Efficiency
+                                title="97.8% Efficiency"
+                                desc="Low energy loss"
+                            />
+                            <FeatureItem
+                                icon={<BoltIcon />}
+                                title="Emergency Backup"
+                                desc="Instant EPS switch"
+                            />
+                        </div>
+
+                        {/* Specs Table */}
+                        <div className="bg-[#F8F9FA] rounded-xl p-6 mb-10">
+                            <div className="grid grid-cols-2 gap-y-4 text-sm">
+                                <div className="text-gray-500 font-medium border-b border-gray-200 pb-2">Feature</div>
+                                <div className="text-gray-500 font-medium border-b border-gray-200 pb-2">Specification</div>
+
+                                <div className="text-gray-600 border-b border-gray-200 pb-2 font-medium">Nominal Voltage</div>
+                                <div className="text-[#062d16] font-bold border-b border-gray-200 pb-2">400V</div>
+
+                                <div className="text-gray-600 border-b border-gray-200 pb-2 font-medium">Cycle Life</div>
+                                <div className="text-[#062d16] font-bold border-b border-gray-200 pb-2">10,000+ Cycles</div>
+
+                                <div className="text-gray-600 font-medium">Ingress Rating</div>
+                                <div className="text-[#062d16] font-bold">IP65 (Outdoor Rated)</div>
+                            </div>
+                        </div>
+
+                        {/* CTA Button */}
+                        <div>
+                            <Link href="/quote-form">
+                                <button className="bg-[#062d16] text-white px-8 py-4 rounded-lg font-bold hover:bg-[#0a4523] transition-colors duration-300">
+                                    Get a Quote for NeoVolt
+                                </button>
+                            </Link>
+                        </div>
                     </div>
 
-                    {/* Center Image - Hero */}
-                    <div className="relative h-[500px] lg:h-[600px] w-full order-1 lg:order-2 flex items-center justify-center">
-                        <div className="relative w-full h-full">
-                            {/* Glow Effect */}
-                            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-gradient-to-b from-[#C2F32C]/20 to-transparent rounded-full blur-3xl opacity-50"></div>
-
+                    {/* Right Image Column */}
+                    <div className="flex-1 bg-[#F4F6F8] relative min-h-[400px] lg:min-h-auto flex items-center justify-center p-12">
+                        <div className="relative w-full h-full min-h-[400px]">
                             <Image
                                 src="/images/services/neovolt-internal-v2.jpg"
                                 alt="NeoVolt Battery Internal View"
                                 fill
-                                className="object-contain drop-shadow-2xl z-10 hover:scale-105 transition-transform duration-700"
+                                className="object-contain drop-shadow-2xl"
                                 priority
                             />
                         </div>
-                    </div>
-
-                    {/* Right Column Specs */}
-                    <div className="space-y-6 flex flex-col lg:items-start lg:text-left order-3">
-                        <SpecCard
-                            title="5kW Power Output"
-                            desc="Continuous power delivery to run heavy appliances with ease."
-                            icon={<BoltIcon />}
-                        />
-                        <SpecCard
-                            title="IP65 Protection"
-                            desc="Dust tight and protected against water jets. Installing indoors or out."
-                            icon={<UmbrellaIcon />}
-                        />
-                        <SpecCard
-                            title="Scalable Design"
-                            desc="Connect up to 6 units in parallel for a massive 57.6kWh capacity."
-                            icon={<StackIcon />}
-                        />
-                    </div>
-                </div>
-
-                {/* Detailed Technical Specs Toggle/Section */}
-                <div className="max-w-4xl mx-auto bg-gray-50 rounded-3xl p-8 border border-gray-100">
-                    <h3 className="text-xl font-bold text-[#062d16] mb-6 flex items-center gap-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-[#C2F32C]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                        </svg>
-                        Full Technical Specifications
-                    </h3>
-                    <div className="grid md:grid-cols-2 gap-x-12 gap-y-4 text-sm">
-                        <SpecRow label="Nominal Voltage" value="96V" />
-                        <SpecRow label="Operating Voltage" value="90 ~ 108V" />
-                        <SpecRow label="Dimensions" value="590 x 730 x 205mm" />
-                        <SpecRow label="Weight" value="86kg" />
-                        <SpecRow label="Usable Capacity" value="9.1kWh" />
-                        <SpecRow label="DoD" value="96%" />
-                        <SpecRow label="Legacy/Compliance" value="IEC 62619, UN38.3" />
-                        <SpecRow label="Communication" value="CAN / RS-485" />
                     </div>
                 </div>
             </div>
@@ -107,22 +102,14 @@ const NeoVoltSpecs = () => {
     );
 };
 
-// Helper Components for Cleaner Code
-const SpecCard = ({ title, desc, icon }: { title: string, desc: string, icon: React.ReactNode }) => (
-    <div className="group bg-white/50 backdrop-blur-sm p-6 rounded-2xl border border-gray-100 hover:border-[#C2F32C] hover:shadow-lg transition-all duration-300">
-        <div className="lg:hidden mb-3 text-[#062d16]">{icon}</div> {/* Mobile Icon */}
-        <h4 className="font-bold text-lg text-[#062d16] mb-2 flex items-center gap-3 lg:justify-end lg:flex-row-reverse group-hover:text-[#062d16]">
-            <span className="hidden lg:block text-[#C2F32C] transition-transform group-hover:scale-110">{icon}</span>
-            {title}
-        </h4>
-        <p className="text-gray-500 text-sm leading-relaxed">{desc}</p>
-    </div>
-);
-
-const SpecRow = ({ label, value }: { label: string, value: string }) => (
-    <div className="flex justify-between items-center py-2 border-b border-gray-200 last:border-0">
-        <span className="text-gray-500">{label}</span>
-        <span className="font-bold text-[#062d16]">{value}</span>
+// Simplified Feature Item Component for the new layout
+const FeatureItem = ({ icon, title, desc }: { icon: React.ReactNode, title: string, desc: string }) => (
+    <div className="flex flex-col gap-2">
+        <div className="text-[#062d16] w-6 h-6 mb-1">{icon}</div>
+        <div>
+            <h4 className="font-bold text-[#062d16] text-lg">{title}</h4>
+            <p className="text-gray-500 text-sm">{desc}</p>
+        </div>
     </div>
 );
 

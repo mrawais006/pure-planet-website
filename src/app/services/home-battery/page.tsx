@@ -7,16 +7,7 @@ import Footer from "@/components/layout/Footer";
 import Testimonials from "@/components/home/Testimonials";
 import HighEfficiencySection from "@/components/services/HighEfficiencySection";
 import NeoVoltSpecs from "@/components/services/NeoVoltSpecs";
-import FoxEssSpecs from "@/components/services/FoxEssSpecs";
-import FoxEssEQ5000Specs from "@/components/services/FoxEssEQ5000Specs";
-import FoxEssEQ6000Specs from "@/components/services/FoxEssEQ6000Specs";
-import FoxEssEP5Specs from "@/components/services/FoxEssEP5Specs";
-import FoxEssEP6Specs from "@/components/services/FoxEssEP6Specs";
-import FoxEssEP11Specs from "@/components/services/FoxEssEP11Specs";
-import FoxEssEP12Specs from "@/components/services/FoxEssEP12Specs";
-import FoxEssCQ6Specs from "@/components/services/FoxEssCQ6Specs";
-import FoxEssCQ7Specs from "@/components/services/FoxEssCQ7Specs";
-import FoxEssCQ16Specs from "@/components/services/FoxEssCQ16Specs";
+import FoxEssCarousel from "@/components/services/FoxEssCarousel";
 import FAQ from "@/components/shared/FAQ";
 import CallToAction from "@/components/shared/CallToAction";
 
@@ -35,12 +26,12 @@ export default function HomeBatteryPage() {
     // Assets (Using placeholders from existing assets as specific ones weren't fetched due to 429)
     const heroBg = "/Pure Planet Images/Home Batteries/154.jpg";
     // Intro Image - Placeholder simulating the room setting
-    const introImg = "/Pure Planet Images/Home Batteries/194114.jpg";
+    const introImg = "/images/services/intro-battery-setup.png";
     // Gallery Images
-    const gallery1 = "/Pure Planet Images/Home Batteries/194657.jpg";
-    const gallery2 = "/Pure Planet Images/Home Batteries/194114.jpg";
+    const gallery1 = "/images/services/residential-battery-system.png";
+    const gallery2 = "/images/services/hybrid-inverter-solution.png";
     const gallery3 = "/Pure Planet Images/Home Batteries/154.jpg";
-    const benefitsImg = "/Pure Planet Images/Home Batteries/5150.jpg";
+
 
 
 
@@ -114,16 +105,7 @@ export default function HomeBatteryPage() {
 
             {/* 2b. Fox ESS Showcase */}
             {/* 2b. Fox ESS Showcase */}
-            <FoxEssSpecs />
-            <FoxEssEQ5000Specs />
-            <FoxEssEQ6000Specs />
-            <FoxEssEP5Specs />
-            <FoxEssEP6Specs />
-            <FoxEssEP11Specs />
-            <FoxEssEP12Specs />
-            <FoxEssCQ6Specs />
-            <FoxEssCQ7Specs />
-            <FoxEssCQ16Specs />
+            <FoxEssCarousel />
 
             {/* 2c. Home Battery Storage Solution */}
             <section className="py-24 bg-white">
@@ -156,7 +138,7 @@ export default function HomeBatteryPage() {
                         </p>
                     </div>
                     <div className="relative h-[400px] rounded-[2rem] overflow-hidden shadow-2xl group">
-                        <Image src="/solar-planet/Background.png" alt="Home Battery Storage" fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
+                        <Image src="/images/services/home-battery-solution.png" alt="Home Battery Storage" fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
                     </div>
                 </div>
             </section>
@@ -202,7 +184,7 @@ export default function HomeBatteryPage() {
             <section className="py-24 bg-white">
                 <div className="max-w-[1440px] mx-auto px-6 md:px-12 grid lg:grid-cols-2 gap-16 items-center">
                     <div className="relative h-[400px] rounded-[2rem] overflow-hidden shadow-2xl group">
-                        <Image src="/solar-planet/Background.png" alt="Home Battery Benefits" fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
+                        <Image src="/images/services/home-battery-benefits.png" alt="Home Battery Benefits" fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
                     </div>
                     <div>
                         <h2 className="text-4xl md:text-5xl font-display font-bold text-black mb-8 leading-tight">

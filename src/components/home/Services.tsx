@@ -14,8 +14,7 @@ const Services = () => {
         },
         {
             title: "Smart Home Batteries",
-            // Corrected Path: /Pure Planet Images/Home Page/...
-            image: "/Pure Planet Images/Home Page/energy-storage-battery-packs-smart-garage-wall-as-backup-generated-from-solar-system.jpg",
+            image: "/images/services/home-battery-benefits.png",
             link: "/services/home-batteries"
         },
         {
@@ -26,8 +25,7 @@ const Services = () => {
         },
         {
             title: "Hot Water Heat Pumps",
-            // Corrected Path
-            image: "/Pure Planet Images/Home Page/r-conditioning-fan-hvac-ventilation-fan-background.jpg",
+            image: "/images/services/card-heatpump.png",
             link: "/services/heat-pump"
         }
     ];
